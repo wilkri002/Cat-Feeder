@@ -14,9 +14,9 @@ const char* password = "PWD";       //wifi password
 WiFiClientSecure client;                                                          //Start WiFi
 Adafruit_MQTT_Client mqtt(&client, server, serverport, username, username, key);  //connect to website
 
-//Set ut feeder button feed
-Adafruit_MQTT_Publish timeFeed = Adafruit_MQTT_Publish(&mqtt, username "/feeds/timefeed");                    //setup feed for logging when the cat has eaten
-Adafruit_MQTT_Subscribe catFeederButton = Adafruit_MQTT_Subscribe(&mqtt, username "/feeds/catfeederbutton");  //setup fedd for online feed button
+//Set ut feeds
+Adafruit_MQTT_Publish timeFeed = Adafruit_MQTT_Publish(&mqtt, username "/feedlocation");                    //setup feed for logging when the cat has eaten
+Adafruit_MQTT_Subscribe catFeederButton = Adafruit_MQTT_Subscribe(&mqtt, username "/feedlocation");         //setup feed for online feed button
 
 void(* resetFunc) (void) = 0;     //resets the ESP
 
